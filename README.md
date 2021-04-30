@@ -2,7 +2,7 @@
 
 [![release][1]][2] [![license][7]][8]
 
-NAME is a **JAM game** for 💻**PC** / 🌐**Web**.
+Paint Jam 2021 is a **JAM game** for 💻**PC** / 🌐**Web**.
 
 [Game jam 2021](https://globalgamejam.org/2021/games/poungi-6) theme is `Lost & Found`.
 
@@ -26,7 +26,6 @@ Play at **[kiiks.itch.io](https://kiiks.itch.io/poungi)**
 - **[@Killian D.](https://github.com/kiiks)** 🐧
 - **[@Louis C.](https://github.com/Kdaudau)** 🦦
 - **[@Théo C.](https://github.com/GreenDjango)** 🐙
-- **[@Yann M.](https://github.com/Paquity)** 🐤
 
 <img src="assets/splashscreen.png" alt="GGJ icon" width="200" align="center"/>
 
