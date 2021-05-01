@@ -1,16 +1,6 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/scripts/transitions_al.gd" type="Script" id=1]
-[ext_resource path="res://assets/textures/cutoff_d/trans_1.png" type="Texture" id=2]
-[ext_resource path="res://assets/textures/cutoff_d/trans_10.png" type="Texture" id=3]
-[ext_resource path="res://assets/textures/cutoff_d/trans_9.png" type="Texture" id=4]
-[ext_resource path="res://assets/textures/cutoff_d/trans_3.png" type="Texture" id=5]
-[ext_resource path="res://assets/textures/cutoff_d/trans_2.png" type="Texture" id=6]
-[ext_resource path="res://assets/textures/cutoff_d/trans_7.png" type="Texture" id=7]
-[ext_resource path="res://assets/textures/cutoff_d/trans_8.png" type="Texture" id=8]
-[ext_resource path="res://assets/textures/cutoff_d/trans_5.png" type="Texture" id=9]
-[ext_resource path="res://assets/textures/cutoff_d/trans_6.png" type="Texture" id=10]
-[ext_resource path="res://assets/textures/cutoff_d/trans_4.png" type="Texture" id=11]
 [ext_resource path="res://src/shaders/cutoff.shader" type="Shader" id=12]
 [ext_resource path="res://src/shaders/fade.shader" type="Shader" id=13]
 
@@ -26,7 +16,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ) ]
+"values": [ null ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("canvas/cutoff:material:shader_param/cutoff")
@@ -65,7 +55,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ) ]
+"values": [ null ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("canvas/cutoff:material:shader_param/cutoff")
@@ -104,7 +94,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ null ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("canvas/cutoff:material:shader_param/cutoff")
@@ -143,7 +133,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ) ]
+"values": [ null ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("canvas/cutoff:material:shader_param/cutoff")
@@ -182,7 +172,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 8.57419 ),
 "update": 1,
-"values": [ ExtResource( 6 ) ]
+"values": [ null ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("canvas/cutoff:material:shader_param/cutoff")
@@ -221,7 +211,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 2.54912 ),
 "update": 1,
-"values": [ ExtResource( 7 ) ]
+"values": [ null ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("canvas/cutoff:material:shader_param/cutoff")
@@ -275,7 +265,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 12.996 ),
 "update": 1,
-"values": [ ExtResource( 8 ) ]
+"values": [ null ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("canvas/cutoff:material:shader_param/cutoff")
@@ -314,7 +304,46 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 2.54912 ),
 "update": 1,
-"values": [ ExtResource( 9 ) ]
+"values": [ null ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("canvas/cutoff:material:shader_param/cutoff")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("canvas/cutoff:material:shader_param/smooth_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.3, 0.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("canvas/cutoff:material:shader_param/mask")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 6.72717 ),
+"update": 1,
+"values": [ null ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("canvas/cutoff:material:shader_param/cutoff")
@@ -351,48 +380,9 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 6.72717 ),
-"update": 1,
-"values": [ ExtResource( 10 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("canvas/cutoff:material:shader_param/cutoff")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 1.0, 0.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("canvas/cutoff:material:shader_param/smooth_size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.3, 0.0 ]
-}
-
-[sub_resource type="Animation" id=12]
-length = 0.4
-tracks/0/type = "value"
-tracks/0/path = NodePath("canvas/cutoff:material:shader_param/mask")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 2.54912 ),
 "update": 1,
-"values": [ ExtResource( 11 ) ]
+"values": [ null ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("canvas/cutoff:material:shader_param/cutoff")
@@ -419,14 +409,13 @@ tracks/2/keys = {
 "values": [ 0.3, 0.0 ]
 }
 
-[sub_resource type="ShaderMaterial" id=13]
+[sub_resource type="ShaderMaterial" id=12]
 shader = ExtResource( 12 )
 shader_param/cutoff = 1.0
 shader_param/smooth_size = 0.3
 shader_param/cutoff_s = true
-shader_param/mask = ExtResource( 6 )
 
-[sub_resource type="ShaderMaterial" id=14]
+[sub_resource type="ShaderMaterial" id=13]
 shader = ExtResource( 13 )
 shader_param/alpha = 0.0
 
@@ -445,13 +434,13 @@ anims/Down-Top = SubResource( 6 )
 anims/Fade = SubResource( 7 )
 anims/LEFTandRIGHT = SubResource( 8 )
 anims/Left-right = SubResource( 9 )
-anims/Right-Left = SubResource( 11 )
-anims/Top-down = SubResource( 12 )
+anims/Right-Left = SubResource( 10 )
+anims/Top-down = SubResource( 11 )
 
 [node name="canvas" type="CanvasLayer" parent="."]
 
 [node name="cutoff" type="ColorRect" parent="canvas"]
-material = SubResource( 13 )
+material = SubResource( 12 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0 )
@@ -461,7 +450,7 @@ __meta__ = {
 }
 
 [node name="fade_in" type="ColorRect" parent="canvas"]
-material = SubResource( 14 )
+material = SubResource( 13 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
