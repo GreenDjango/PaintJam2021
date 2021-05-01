@@ -1,20 +1,29 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/sprites/ratio.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/stickman.png" type="Texture" id=2]
+[ext_resource path="res://src/shaders/wobbly_effect.shader" type="Shader" id=3]
+[ext_resource path="res://assets/textures/normals/organic-normal.jpg" type="Texture" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 3 )
+shader_param/strength = 0.05
+shader_param/speed = 4.0
+shader_param/frames = 3
+shader_param/flowMap = ExtResource( 4 )
 
 [node name="Game" type="Node2D"]
 
-[node name="ratio" type="Sprite" parent="."]
-position = Vector2( 0, 360 )
-scale = Vector2( 1, -1 )
-texture = ExtResource( 1 )
-centered = false
+[node name="Player" type="Node2D" parent="."]
 
-[node name="ratio2" type="Sprite" parent="."]
-visible = false
-position = Vector2( 0, -360 )
-texture = ExtResource( 1 )
-centered = false
+[node name="Polygon2D" type="Polygon2D" parent="Player"]
+position = Vector2( 126.888, 127.292 )
+scale = Vector2( 11.3099, 1 )
+polygon = PoolVector2Array( 2.77238, 109.451, 2.30029, 45.7122, 4.55556, 30.1948, 4.51384, -11.8076, 1.75981, -27.8534, 2.8314, -55.4019, 2.97892, -82.4324, 1.41511, -108.128, -3.06978, -99.7854, -3.21656, -57.0313, -1.49494, -33.5167, -4.08206, -15.1111, -4.16551, 33.9703, -1.71251, 45.0448, -2.33214, 107.115 )
+
+[node name="StickMan" type="Sprite" parent="Player"]
+material = SubResource( 1 )
+position = Vector2( 130, 130 )
+texture = ExtResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
