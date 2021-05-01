@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	$Control/Path2D/PathFollow2D/Pingu.play("fly")
+	pass
 
 func _input(event):
 	if event is InputEventKey:

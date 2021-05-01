@@ -15,13 +15,14 @@ _global_script_class_icons={
 [application]
 
 config/name="GameJam"
-run/main_scene="res://src/scenes/main.tscn"
+run/main_scene="res://src/scenes/game.tscn"
 boot_splash/image="res://assets/splashscreen.png"
 config/icon="res://assets/icon.png"
 
 [autoload]
 
 Globals="*res://src/scripts/globals.gd"
+TransitionsAl="*res://src/scenes/transitions_al.tscn"
 
 [debug]
 

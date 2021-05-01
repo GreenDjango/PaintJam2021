@@ -13,5 +13,4 @@ func restart_game():
 	goto_scene("main_menu")
 
 func goto_scene(new_scene_name : String):
-# warning-ignore:return_value_discarded
-	get_tree().change_scene("res://src/scenes/" + new_scene_name + ".tscn")
+	TransitionsAl.next_scene("res://src/scenes/" + new_scene_name + ".tscn")
