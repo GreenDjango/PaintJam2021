@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/scenes/level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/stickman.png" type="Texture" id=2]
 [ext_resource path="res://src/shaders/wobbly_effect.shader" type="Shader" id=3]
 [ext_resource path="res://assets/textures/normals/organic-normal.jpg" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/boutton.png" type="Texture" id=5]
@@ -8,6 +9,13 @@
 [ext_resource path="res://src/scripts/CanvasLayer.gd" type="Script" id=7]
 
 [sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 3 )
+shader_param/strength = 0.05
+shader_param/speed = 4.0
+shader_param/frames = 3
+shader_param/flowMap = ExtResource( 4 )
+
+[sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 3 )
 shader_param/strength = 0.005
 shader_param/speed = 3.0
@@ -18,7 +26,7 @@ shader_param/flowMap = ExtResource( 4 )
 size = 80
 font_data = ExtResource( 6 )
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=10]
 code = "shader_type canvas_item;
 
 // https://godotshaders.com/shader/wobbly-effect-hand-painted-animation
@@ -51,25 +59,25 @@ void fragment(){
 }
 */"
 
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
+[sub_resource type="ShaderMaterial" id=11]
+shader = SubResource( 10 )
 shader_param/strength = 0.005
 shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=3]
 size = 150
 font_data = ExtResource( 6 )
 
-[sub_resource type="ShaderMaterial" id=6]
+[sub_resource type="ShaderMaterial" id=7]
 shader = ExtResource( 3 )
 shader_param/strength = 0.015
 shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=5]
 size = 50
 outline_size = 1
 font_data = ExtResource( 6 )
@@ -88,7 +96,7 @@ shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=6]
 size = 50
 outline_size = 1
 font_data = ExtResource( 6 )
@@ -104,7 +112,7 @@ position = Vector2( 0.870239, -2.06378 )
 script = ExtResource( 7 )
 
 [node name="DebugLabel" type="Label" parent="CanvasLayer"]
-material = SubResource( 1 )
+material = SubResource( 4 )
 anchor_left = -0.000679874
 anchor_top = 0.998791
 anchor_right = -0.000679874
@@ -149,14 +157,14 @@ __meta__ = {
 }
 
 [node name="Timer" type="Label" parent="CanvasLayer"]
-material = SubResource( 4 )
+material = SubResource( 11 )
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 79.486
 margin_top = -137.359
 margin_right = 190.486
 margin_bottom = -1.35901
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 3 )
 text = "10"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -165,7 +173,7 @@ __meta__ = {
 [node name="Timer" type="Timer" parent="CanvasLayer/Timer"]
 
 [node name="SpeedNormal" type="TextureButton" parent="CanvasLayer"]
-material = SubResource( 1 )
+material = SubResource( 4 )
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -180,7 +188,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="CanvasLayer/SpeedNormal"]
-material = SubResource( 6 )
+material = SubResource( 7 )
 anchor_left = 0.5
 anchor_top = 0.510238
 anchor_right = 0.5
@@ -189,7 +197,7 @@ margin_left = -57.874
 margin_top = -23.388
 margin_right = 55.126
 margin_bottom = 22.612
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 5 )
 text = "Normal"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -220,7 +228,7 @@ margin_left = -61.8741
 margin_top = -25.6323
 margin_right = 59.1259
 margin_bottom = 20.3677
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 6 )
 text = "Faster"
 
 [connection signal="pressed" from="CanvasLayer/SpeedNormal" to="Level" method="_on_SpeedNormal_pressed"]
