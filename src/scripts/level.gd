@@ -7,6 +7,7 @@ onready var ConvoyerOrder := [ConvoyerBelt1, ConvoyerBelt2, ConvoyerBelt3]
 onready var ConvoyerSize : Vector2 = ConvoyerBelt1.texture.get_size()
 
 var ConvoyerSpeed = 180
+var speedLevel = 1
 
 onready var spawn_ingredient = $SpawnIngredient
 onready var ingredientScene = preload("res://src/nodes/Ingredient.tscn")
@@ -45,6 +46,7 @@ func _physics_process(delta):
 			print("deposit")
 			if Globals.currentRecipe.has(Globals.ingredientDragged.ingredientID):
 				get_tree().get_nodes_in_group("UI")[0].toggleCheck(Globals.ingredientDragged.ingredientID)
+				get_tree().get_nodes_in_group("UI")[0].ingredientsRemaining -= 1
 			Globals.ingredientDragged.queue_free()
 			Globals.ingredientDragged = null
 		else:
@@ -74,12 +76,29 @@ func instanceIngredient():
 	add_child(new_ingredient)
 	ingredientsInstancied.append(new_ingredient)
 
-func _on_SpeedNormal_pressed():
-	ConvoyerSpeed = 180
-	Globals.ingredientSpeed =  3
-	spawnSpeed = 2
+func _on_SpeedDown_pressed():
+	if speedLevel == 1:
+		return
+	speedLevel -= 1
+	updateSpeed()
 
 func _on_SpeedUp_pressed():
-	ConvoyerSpeed = 360
-	Globals.ingredientSpeed =  6
-	spawnSpeed = 1
+	if speedLevel == 3:
+		return
+	speedLevel += 1
+	updateSpeed()
+
+func updateSpeed():
+	match speedLevel:
+		1:
+			ConvoyerSpeed = 180
+			Globals.ingredientSpeed =  3
+			spawnSpeed = 2
+		2:
+			ConvoyerSpeed = 360
+			Globals.ingredientSpeed =  6
+			spawnSpeed = 1
+		3:
+			ConvoyerSpeed = 720
+			Globals.ingredientSpeed =  12
+			spawnSpeed = 0.5

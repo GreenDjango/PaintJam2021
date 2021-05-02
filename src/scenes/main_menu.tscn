@@ -28,6 +28,24 @@ flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 272, 13, 408, 201 )
 
+[sub_resource type="PhysicsMaterial" id=5]
+bounce = 0.6
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 3 )
+shader_param/strength = 0.04
+shader_param/speed = 3.0
+shader_param/frames = 2
+shader_param/flowMap = ExtResource( 4 )
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 47.8531
+height = 64.2
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 49.9009
+height = 64.2399
+
 [sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 3 )
 shader_param/strength = 0.005
@@ -243,6 +261,7 @@ __meta__ = {
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/plain/Ground"]
 polygon = PoolVector2Array( -642.5, 9.5, -612, -19, -503.5, -63.75, -348, -97.25, -210.5, -111, 164.75, -110.75, 413, -90.5, 487.75, -69.5, 584, -23.25, 628.75, 4 )
+
 
 [node name="Dispawn" type="Area2D" parent="Node2D"]
 position = Vector2( 640, 0 )
