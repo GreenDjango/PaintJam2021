@@ -110,11 +110,13 @@ func addLives():
 	liveIndicator.rect_min_size = Vector2(50,50)
 	liveIndicator.rect_size = Vector2(50,50)
 	liveIndicator.texture = load("res://assets/sprites/campbells.png")
+	liveIndicator.modulate = Color.lightgray
 	
 	liveCross.expand = true
 	liveCross.rect_min_size = Vector2(50,50)
 	liveCross.rect_size = Vector2(50,50)
-	liveCross.texture = load("res://assets/sprites/check.png")
+	liveCross.texture = load("res://assets/sprites/cross.png")
+	liveIndicator.self_modulate = Color.white
 	liveCross.visible = false
 	
 	crosses.append(liveCross)
