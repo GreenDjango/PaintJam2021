@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	pass
+	$AnimationTree.active = true
 
 func _on_Start_mouse_entered():
 	$Start.modulate = Color("dddddd")
