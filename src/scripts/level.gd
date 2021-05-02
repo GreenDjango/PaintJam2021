@@ -15,7 +15,6 @@ func _ready():
 
 func _physics_process(delta):
 	timer += delta
-	print(timer)
 	if timer >= 2:
 		instanceIngredient()
 		timer = 0
@@ -54,3 +53,10 @@ func instanceIngredient():
 	add_child(new_ingredient)
 	ingredientsInstancied.append(new_ingredient)
 
+
+
+func _on_SpeedNormal_pressed():
+	pass # Replace with function body.
+
+func _on_SpeedUp_pressed():
+	pass # Replace with function body.

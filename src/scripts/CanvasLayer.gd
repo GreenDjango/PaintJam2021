@@ -3,14 +3,29 @@ extends CanvasLayer
 onready var recipeContainer = $IngredientIndicators
 onready var livesContainer = $Lives
 
+onready var timerLabel = $Timer
+onready var timer = $Timer/Timer
+
 var nbIngredients = 3
 var checks = []
-
 var crosses = []
 
 func _ready():
 	createRecipe()
 	initLives()
+	
+	timer.connect("timeout",self,"_on_timer_timeout")
+	timer.wait_time = 10
+	timer.start()
+
+func _process(delta):
+	timerLabel.text = String(int(timer.time_left))
+
+func _on_timer_timeout():
+	if not Globals.recipeDone:
+		print("lose")
+	else:
+		print("win")
 
 func createRecipe():
 	for i in nbIngredients:
@@ -26,6 +41,10 @@ func toggleCheck(ingredientID: int):
 	if ingredientID > Globals.ingredientSprites.size() or ingredientID < 0:
 		return
 	checks[Globals.currentRecipe.find(ingredientID)].visible = true
+
+func removeLife():
+	crosses[Globals.life-1].visible = true
+	Globals.life -= 1
 
 func addIngredientIndicator(id: int):
 	var ingredientIndicator = TextureRect.new()
@@ -59,6 +78,7 @@ func addLives():
 	liveCross.rect_min_size = Vector2(50,50)
 	liveCross.rect_size = Vector2(50,50)
 	liveCross.texture = load("res://assets/sprites/check.png")
+	liveCross.visible = false
 	crosses.append(liveCross)
 	
 	liveIndicator.add_child(liveCross)
