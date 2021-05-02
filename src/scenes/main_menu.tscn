@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/scripts/main_menu.gd" type="Script" id=1]
+[ext_resource path="res://assets/font/Louisfont-Regular.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/shaders/wobbly_effect.shader" type="Shader" id=3]
+[ext_resource path="res://assets/textures/normals/organic-normal.jpg" type="Texture" id=4]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 3 )
+shader_param/strength = 0.01
+shader_param/speed = 3.0
+shader_param/frames = 2
+shader_param/flowMap = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+outline_size = 2
+use_mipmaps = true
+font_data = ExtResource( 2 )
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -12,15 +28,17 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="."]
+material = SubResource( 2 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -7.0
-margin_right = 20.0
-margin_bottom = 7.0
-text = "TITLE"
+margin_left = -238.5
+margin_top = -100.728
+margin_right = 238.5
+margin_bottom = -8.72839
+custom_fonts/font = SubResource( 1 )
+text = "Cooking Daddy"
 __meta__ = {
 "_edit_use_anchors_": false
 }
