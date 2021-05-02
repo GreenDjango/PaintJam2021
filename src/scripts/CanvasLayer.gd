@@ -17,7 +17,7 @@ func _ready():
 	initLives()
 	
 	timer.connect("timeout",self,"_on_timer_timeout")
-	timer.wait_time = 5
+	timer.wait_time = 30
 	timer.start()
 
 func _process(delta):
@@ -37,6 +37,8 @@ func _on_timer_timeout():
 func changeRecipe():
 	timer.start()
 	checks = []
+	Globals.currentRecipe = []
+	Globals.recipeDone = false
 	ingredientsRemaining = nbIngredients
 	for child in recipeContainer.get_children():
 		child.queue_free()
