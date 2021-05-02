@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/tapis.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/tapis.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/soup.png" type="Texture" id=2]
 [ext_resource path="res://src/scripts/level.gd" type="Script" id=4]
 
@@ -8,7 +8,7 @@
 radius = 125.729
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 74.1304, 135.925 )
+extents = Vector2( 74.1304, 408.163 )
 
 [node name="Level" type="Node2D"]
 position = Vector2( 0, -1.19354 )
@@ -28,7 +28,10 @@ shape = SubResource( 1 )
 position = Vector2( -100.259, 130.097 )
 
 [node name="DispawnIngredient" type="Area2D" parent="."]
-position = Vector2( 1474.04, 300.776 )
+position = Vector2( 1590, 360 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DispawnIngredient"]
 position = Vector2( 1.19348, -121.742 )
@@ -37,13 +40,19 @@ shape = SubResource( 2 )
 [node name="ConvoyerBelt" type="Node2D" parent="."]
 
 [node name="ConvoyerBelt1" type="Sprite" parent="ConvoyerBelt"]
-position = Vector2( 641.785, 182.755 )
-scale = Vector2( 1.05533, 1 )
+position = Vector2( 0, 210 )
 texture = ExtResource( 1 )
+centered = false
 
 [node name="ConvoyerBelt2" type="Sprite" parent="ConvoyerBelt"]
-position = Vector2( -211.951, 1153.25 )
+position = Vector2( 17.3212, 871.9 )
 texture = ExtResource( 1 )
+centered = false
+
+[node name="ConvoyerBelt3" type="Sprite" parent="ConvoyerBelt"]
+position = Vector2( 9.45419, 1209.39 )
+texture = ExtResource( 1 )
+centered = false
 
 [connection signal="area_entered" from="Soup/DepositArea" to="." method="_on_DepositArea_area_entered"]
 [connection signal="area_exited" from="Soup/DepositArea" to="." method="_on_DepositArea_area_exited"]

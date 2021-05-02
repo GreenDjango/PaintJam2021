@@ -103,19 +103,6 @@ font_data = ExtResource( 6 )
 
 [node name="Game" type="Node2D"]
 
-[node name="Player" type="Node2D" parent="."]
-visible = false
-
-[node name="Polygon2D" type="Polygon2D" parent="Player"]
-position = Vector2( 126.888, 127.292 )
-scale = Vector2( 11.3099, 1 )
-polygon = PoolVector2Array( 2.77238, 109.451, 2.30029, 45.7122, 4.55556, 30.1948, 4.51384, -11.8076, 1.75981, -27.8534, 2.8314, -55.4019, 2.97892, -82.4324, 1.41511, -108.128, -3.06978, -99.7854, -3.21656, -57.0313, -1.49494, -33.5167, -4.08206, -15.1111, -4.16551, 33.9703, -1.71251, 45.0448, -2.33214, 107.115 )
-
-[node name="StickMan" type="Sprite" parent="Player"]
-material = SubResource( 1 )
-position = Vector2( 130, 130 )
-texture = ExtResource( 2 )
-
 [node name="Level" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0.870239, -2.06378 )
 
