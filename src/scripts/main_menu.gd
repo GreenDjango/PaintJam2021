@@ -9,7 +9,7 @@ func spawn_ingredients():
 	var to_spawn = randi() % 5 + 1
 	var pos_start = $Node2D/Ingredients/Start.position
 	var pos_end = $Node2D/Ingredients/End.position
-	for i in range(to_spawn):
+	for _i in range(to_spawn):
 		var new_ingredient = ingredientScene.instance()
 		var pos_x = rand_range(pos_start.x, pos_end.x)
 		var pos_y = rand_range(-120, -60)
