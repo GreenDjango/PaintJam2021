@@ -28,7 +28,7 @@ shape = SubResource( 1 )
 position = Vector2( -100.259, 130.097 )
 
 [node name="DispawnIngredient" type="Area2D" parent="."]
-position = Vector2( 1590, 360 )
+position = Vector2( 1547.03, 405.355 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -40,7 +40,7 @@ shape = SubResource( 2 )
 [node name="ConvoyerBelt" type="Node2D" parent="."]
 
 [node name="ConvoyerBelt1" type="Sprite" parent="ConvoyerBelt"]
-position = Vector2( 0, 210 )
+position = Vector2( 0, 50 )
 texture = ExtResource( 1 )
 centered = false
 
@@ -57,4 +57,3 @@ centered = false
 [connection signal="area_entered" from="Soup/DepositArea" to="." method="_on_DepositArea_area_entered"]
 [connection signal="area_exited" from="Soup/DepositArea" to="." method="_on_DepositArea_area_exited"]
 [connection signal="area_entered" from="DispawnIngredient" to="." method="_on_DispawnIngredient_area_entered"]
-[connection signal="area_exited" from="DispawnIngredient" to="." method="_on_DispawnIngredient_area_exited"]

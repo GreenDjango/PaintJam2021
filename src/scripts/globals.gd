@@ -27,6 +27,7 @@ var recipeDone = false
 var lastPosition = null
 var dragging = false
 var ingredientDragged = null
+var ingredientSpeed = 3
 
 func _ready():
 	randomize()

@@ -53,7 +53,7 @@ void fragment(){
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = SubResource( 3 )
-shader_param/strength = 0.005
+shader_param/strength = 0.003
 shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 4 )
@@ -64,13 +64,13 @@ font_data = ExtResource( 6 )
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = ExtResource( 3 )
-shader_param/strength = 0.015
+shader_param/strength = 0.005
 shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=7]
-size = 50
+size = 200
 outline_size = 1
 font_data = ExtResource( 6 )
 
@@ -83,20 +83,20 @@ shader_param/flowMap = ExtResource( 4 )
 
 [sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 3 )
-shader_param/strength = 0.015
+shader_param/strength = 0.005
 shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=10]
-size = 50
+size = 150
 outline_size = 1
 font_data = ExtResource( 6 )
 
 [node name="Game" type="Node2D"]
 
 [node name="Level" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0.870239, -2.06378 )
+position = Vector2( -2.16748, -1.05121 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=[
 "UI",
@@ -150,8 +150,10 @@ __meta__ = {
 
 [node name="Timer" type="Label" parent="CanvasLayer"]
 material = SubResource( 4 )
-anchor_top = 1.0
-anchor_bottom = 1.0
+anchor_left = -0.000791073
+anchor_top = 1.00141
+anchor_right = -0.000791073
+anchor_bottom = 1.00141
 margin_left = 79.486
 margin_top = -137.359
 margin_right = 190.486
@@ -182,15 +184,16 @@ __meta__ = {
 [node name="Label" type="Label" parent="CanvasLayer/SpeedNormal"]
 material = SubResource( 6 )
 anchor_left = 0.5
-anchor_top = 0.510238
+anchor_top = 0.511913
 anchor_right = 0.5
-anchor_bottom = 0.510238
-margin_left = -57.874
-margin_top = -23.388
-margin_right = 55.126
-margin_bottom = 22.612
+anchor_bottom = 0.511913
+margin_left = -56.5
+margin_top = -90.0
+margin_right = 56.5
+margin_bottom = 90.0
 custom_fonts/font = SubResource( 7 )
-text = "Normal"
+text = "-"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -216,12 +219,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -61.8741
-margin_top = -25.6323
-margin_right = 59.1259
-margin_bottom = 20.3677
+margin_left = -62.5251
+margin_top = -60.2988
+margin_right = 58.4749
+margin_bottom = 92.7012
 custom_fonts/font = SubResource( 10 )
-text = "Faster"
+text = "+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="CanvasLayer/SpeedNormal" to="Level" method="_on_SpeedNormal_pressed"]
 [connection signal="pressed" from="CanvasLayer/SpeedUp" to="Level" method="_on_SpeedUp_pressed"]

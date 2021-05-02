@@ -5,10 +5,12 @@ onready var ConvoyerBelt2 := $ConvoyerBelt/ConvoyerBelt2
 onready var ConvoyerBelt3 := $ConvoyerBelt/ConvoyerBelt3
 onready var ConvoyerOrder := [ConvoyerBelt1, ConvoyerBelt2, ConvoyerBelt3]
 onready var ConvoyerSize : Vector2 = ConvoyerBelt1.texture.get_size()
-const ConvoyerSpeed := 180
+
+var ConvoyerSpeed = 180
 
 onready var spawn_ingredient = $SpawnIngredient
 onready var ingredientScene = preload("res://src/nodes/Ingredient.tscn")
+var spawnSpeed = 2
 
 var timer = 0
 var ingredientsInstancied = []
@@ -34,7 +36,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	timer += delta
-	if timer >= 2:
+	if timer >= spawnSpeed:
 		instanceIngredient()
 		timer = 0
 	
@@ -72,10 +74,12 @@ func instanceIngredient():
 	add_child(new_ingredient)
 	ingredientsInstancied.append(new_ingredient)
 
-
-
 func _on_SpeedNormal_pressed():
-	pass # Replace with function body.
+	ConvoyerSpeed = 180
+	Globals.ingredientSpeed =  3
+	spawnSpeed = 2
 
 func _on_SpeedUp_pressed():
-	pass # Replace with function body.
+	ConvoyerSpeed = 360
+	Globals.ingredientSpeed =  6
+	spawnSpeed = 1
