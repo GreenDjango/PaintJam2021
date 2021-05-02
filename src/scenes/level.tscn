@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/sprites/tapis.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/campbells.png" type="Texture" id=2]
@@ -9,18 +9,25 @@
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
+shader_param/strength = 0.004
+shader_param/speed = 3.0
+shader_param/frames = 2
+shader_param/flowMap = ExtResource( 5 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 3 )
 shader_param/strength = 0.015
 shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 5 )
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 radius = 148.591
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 74.1304, 408.163 )
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 3 )
 shader_param/strength = 0.008
 shader_param/speed = 3.0
@@ -33,13 +40,14 @@ script = ExtResource( 4 )
 
 [node name="background" type="Sprite" parent="."]
 modulate = Color( 0.894118, 0.894118, 0.894118, 1 )
+material = SubResource( 1 )
 position = Vector2( 653.859, 338.582 )
 scale = Vector2( 2.75469, 2.75469 )
 z_index = -1
 texture = ExtResource( 6 )
 
 [node name="Soup" type="Sprite" parent="."]
-material = SubResource( 1 )
+material = SubResource( 2 )
 position = Vector2( 623.254, 602.674 )
 scale = Vector2( 0.871463, 0.871463 )
 texture = ExtResource( 2 )
@@ -49,7 +57,7 @@ position = Vector2( -1.1936, 1.19354 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Soup/DepositArea"]
 position = Vector2( 5.84283, -15.2243 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="SpawnIngredient" type="Position2D" parent="."]
 position = Vector2( -100.259, 130.097 )
@@ -62,24 +70,24 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DispawnIngredient"]
 position = Vector2( 1.19348, -121.742 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="ConvoyerBelt" type="Node2D" parent="."]
 
 [node name="ConvoyerBelt1" type="Sprite" parent="ConvoyerBelt"]
-material = SubResource( 4 )
+material = SubResource( 5 )
 position = Vector2( 0, 50.117 )
 texture = ExtResource( 1 )
 centered = false
 
 [node name="ConvoyerBelt2" type="Sprite" parent="ConvoyerBelt"]
-material = SubResource( 4 )
+material = SubResource( 5 )
 position = Vector2( 17.3212, 871.9 )
 texture = ExtResource( 1 )
 centered = false
 
 [node name="ConvoyerBelt3" type="Sprite" parent="ConvoyerBelt"]
-material = SubResource( 4 )
+material = SubResource( 5 )
 position = Vector2( 9.45419, 1210.47 )
 texture = ExtResource( 1 )
 centered = false
