@@ -11,79 +11,78 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 800, 500 )
 
-[sub_resource type="ShaderMaterial" id=13]
+[sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 3 )
 shader_param/strength = 0.01
 shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 4 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 2, 6, 256, 206 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 272, 13, 408, 201 )
 
-[sub_resource type="PhysicsMaterial" id=2]
+[sub_resource type="PhysicsMaterial" id=5]
 bounce = 0.6
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=6]
 shader = ExtResource( 3 )
 shader_param/strength = 0.04
 shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 4 )
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=7]
 radius = 47.8531
 height = 64.2
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=8]
 radius = 49.9009
 height = 64.2399
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 700, 10 )
 
-[sub_resource type="ShaderMaterial" id=7]
+[sub_resource type="ShaderMaterial" id=10]
 shader = ExtResource( 3 )
 shader_param/strength = 0.01
 shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=11]
 size = 100
 outline_size = 2
 use_mipmaps = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="ShaderMaterial" id=9]
+[sub_resource type="ShaderMaterial" id=12]
 shader = ExtResource( 3 )
 shader_param/strength = 0.04
 shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 4 )
 
-[sub_resource type="ShaderMaterial" id=10]
+[sub_resource type="ShaderMaterial" id=13]
 shader = ExtResource( 3 )
 shader_param/strength = 0.015
 shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=14]
 size = 45
 outline_size = 1
 use_mipmaps = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=12]
-resource_name = "Start"
+[sub_resource type="Animation" id=15]
 length = 0.2
 step = 0.01
 tracks/0/type = "bezier"
@@ -151,21 +150,21 @@ visible = false
 shape = SubResource( 1 )
 
 [node name="clouds" type="Sprite" parent="Node2D"]
-material = SubResource( 13 )
+material = SubResource( 2 )
 position = Vector2( 218.296, 278.972 )
 scale = Vector2( 0.514015, 0.514015 )
-texture = SubResource( 14 )
+texture = SubResource( 3 )
 
 [node name="clouds2" type="Sprite" parent="Node2D"]
-material = SubResource( 13 )
+material = SubResource( 2 )
 position = Vector2( 993.838, 172.185 )
 scale = Vector2( 0.514015, 0.514015 )
-texture = SubResource( 15 )
+texture = SubResource( 4 )
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="Node2D"]
 position = Vector2( 438.322, 124.726 )
 mass = 2.0
-physics_material_override = SubResource( 2 )
+physics_material_override = SubResource( 5 )
 gravity_scale = 7.0
 angular_velocity = -5.0
 __meta__ = {
@@ -173,18 +172,18 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Node2D/RigidBody2D2"]
-material = SubResource( 3 )
+material = SubResource( 6 )
 texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/RigidBody2D2"]
 position = Vector2( -2.635, 13.724 )
 rotation = 1.5708
-shape = SubResource( 4 )
+shape = SubResource( 7 )
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Node2D"]
 position = Vector2( 219.161, 62.3629 )
 mass = 2.0
-physics_material_override = SubResource( 2 )
+physics_material_override = SubResource( 5 )
 gravity_scale = 7.0
 angular_velocity = 10.0
 __meta__ = {
@@ -192,13 +191,13 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Node2D/RigidBody2D"]
-material = SubResource( 3 )
+material = SubResource( 6 )
 texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/RigidBody2D"]
 position = Vector2( -2.619, 11.661 )
 rotation = 1.5708
-shape = SubResource( 5 )
+shape = SubResource( 8 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
 position = Vector2( 640, 730 )
@@ -207,10 +206,10 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
-shape = SubResource( 6 )
+shape = SubResource( 9 )
 
 [node name="Title" type="Label" parent="."]
-material = SubResource( 7 )
+material = SubResource( 10 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -219,14 +218,14 @@ margin_left = -237.971
 margin_top = -100.728
 margin_right = 239.029
 margin_bottom = -8.72839
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 11 )
 text = "Cooking Daddy"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Start" type="TextureButton" parent="."]
-material = SubResource( 9 )
+material = SubResource( 12 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -244,7 +243,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Start"]
-material = SubResource( 10 )
+material = SubResource( 13 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -255,7 +254,7 @@ margin_right = 20.0
 margin_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 14 )
 text = "START"
 align = 1
 __meta__ = {
@@ -263,7 +262,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Start = SubResource( 12 )
+anims/Start = SubResource( 15 )
 
 [connection signal="button_down" from="Start" to="." method="_on_Start_button_down"]
 [connection signal="button_up" from="Start" to="." method="_on_Start_button_up"]
