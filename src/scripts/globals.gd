@@ -23,6 +23,10 @@ var life := default_life
 
 var currentRecipe: Array = []
 
+var lastPosition = null
+var dragging = false
+var ingredientDragged = null
+
 func _ready():
 	randomize()
 
