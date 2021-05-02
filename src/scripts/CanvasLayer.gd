@@ -22,7 +22,7 @@ func _ready():
 	
 	scoreTimer.connect("timeout",self,"_on_scoreTimer_timeout")
 	timer.connect("timeout",self,"_on_timer_timeout")
-	timer.wait_time = 4
+	timer.wait_time = 30
 	timer.start()
 
 func _process(delta):
@@ -39,6 +39,7 @@ func _process(delta):
 			Globals.numberOfRecipes += 1
 			if Globals.numberOfRecipes == 3:
 				timer.wait_time -= 5
+				Globals.numberOfRecipes = 0
 			scoreTimer.wait_time = 3
 			scoreTimer.start()
 			Globals.currentScore = 30
@@ -52,6 +53,7 @@ func _on_timer_timeout():
 		Globals.numberOfRecipes += 1
 		if Globals.numberOfRecipes == 3:
 			timer.wait_time -= 5
+			Globals.numberOfRecipes = 0
 		if Globals.life ==  0:
 			Globals.goto_scene("retry_menu")
 		changeRecipe()
