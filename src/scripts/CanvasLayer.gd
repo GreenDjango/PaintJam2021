@@ -2,9 +2,11 @@ extends CanvasLayer
 
 onready var recipeContainer = $IngredientIndicators
 onready var livesContainer = $Lives
+onready var addScoreLabel = $addScoreLabel
 
 onready var timerLabel = $Timer
 onready var timer = $Timer/Timer
+onready var scoreTimer = $addScoreLabel/Timer
 
 var nbIngredients = 3
 var ingredientsRemaining = nbIngredients
@@ -12,10 +14,13 @@ var ingredientsRemaining = nbIngredients
 var checks = []
 var crosses = []
 
+
+
 func _ready():
 	createRecipe()
 	initLives()
 	
+	scoreTimer.connect("timeout",self,"_on_scoreTimer_timeout")
 	timer.connect("timeout",self,"_on_timer_timeout")
 	timer.wait_time = 30
 	timer.start()
@@ -24,6 +29,12 @@ func _process(delta):
 	if ingredientsRemaining == 0:
 		Globals.recipeDone = true
 		if Globals.recipeDone:
+			Globals.totalScore += Globals.currentScore
+			addScoreLabel.visible = true
+			addScoreLabel.text = "+" + String(Globals.currentScore)
+			scoreTimer.wait_time = 3
+			scoreTimer.start()
+			Globals.currentScore = 30
 			changeRecipe()
 	timerLabel.text = String(int(timer.time_left))
 
@@ -33,6 +44,11 @@ func _on_timer_timeout():
 		Globals.life -= 1
 		if Globals.life ==  0:
 			print("Game Over")
+			# Implement GAME OVER
+		changeRecipe()
+
+func _on_scoreTimer_timeout():
+	addScoreLabel.visible = false
 
 func changeRecipe():
 	timer.start()

@@ -40,7 +40,7 @@ texture = ExtResource( 2 )
 position = Vector2( -1.1936, 1.19354 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Soup/DepositArea"]
-position = Vector2( 8.31323, -20.1653 )
+position = Vector2( 5.84283, -15.2243 )
 shape = SubResource( 2 )
 
 [node name="SpawnIngredient" type="Position2D" parent="."]

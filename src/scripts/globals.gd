@@ -29,6 +29,11 @@ var dragging = false
 var ingredientDragged = null
 var ingredientSpeed = 3
 
+var totalScore: int = 0
+var currentScore: int = 30
+
+var numberOfRecipes = 0 #To increase difficulty
+
 func _ready():
 	randomize()
 

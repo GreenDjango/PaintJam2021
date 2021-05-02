@@ -42,11 +42,13 @@ func _physics_process(delta):
 		timer = 0
 	
 	if not Input.is_mouse_button_pressed(BUTTON_LEFT):
+		var UI = get_tree().get_nodes_in_group("UI")[0]
 		if isIngredientInDespositArea:
-			print("deposit")
 			if Globals.currentRecipe.has(Globals.ingredientDragged.ingredientID):
-				get_tree().get_nodes_in_group("UI")[0].toggleCheck(Globals.ingredientDragged.ingredientID)
-				get_tree().get_nodes_in_group("UI")[0].ingredientsRemaining -= 1
+				UI.toggleCheck(Globals.ingredientDragged.ingredientID)
+				UI.ingredientsRemaining -= 1
+			else:
+				Globals.currentScore -= 10
 			Globals.ingredientDragged.queue_free()
 			Globals.ingredientDragged = null
 		else:
