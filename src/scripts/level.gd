@@ -12,6 +12,8 @@ func _ready():
 
 func _physics_process(delta):
 	if isIngredientInDespositArea and not Input.is_mouse_button_pressed(BUTTON_LEFT):
+		if Globals.currentRecipe.has(ingredientDragged.ingredientID):
+			get_tree().get_nodes_in_group("UI")[0].toggleCheck(ingredientDragged.ingredientID)
 		ingredientDragged.queue_free()
 
 func _on_DepositArea_area_entered(area):

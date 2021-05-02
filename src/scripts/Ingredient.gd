@@ -1,13 +1,24 @@
 extends Node2D
 
+onready var sprite: Sprite = $Sprite
+
+var ingredientID: int
 var selected = false
 var isMoving = true
+
+func _ready():
+	initTextureRandomly()
+
+func initTextureRandomly():
+	var random = randi() % Globals.ingredientSprites.size()
+	ingredientID = random
+	sprite.texture = load(Globals.ingredientSprites[random])
 
 func _physics_process(delta):
 	if selected:
 		global_position = lerp(global_position, get_global_mouse_position(),25 * delta)
 	if isMoving:
-		translate(Vector2(1.3,0))
+		translate(Vector2(1.8,0))
 
 func _input(event):
 	if event is InputEventMouseButton:

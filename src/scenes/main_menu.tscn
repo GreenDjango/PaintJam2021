@@ -5,14 +5,14 @@
 [ext_resource path="res://src/shaders/wobbly_effect.shader" type="Shader" id=3]
 [ext_resource path="res://assets/textures/normals/organic-normal.jpg" type="Texture" id=4]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
 shader_param/strength = 0.01
 shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 100
 outline_size = 2
 use_mipmaps = true
@@ -28,16 +28,16 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="."]
-material = SubResource( 2 )
+material = SubResource( 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -238.5
+margin_left = -237.971
 margin_top = -100.728
-margin_right = 238.5
+margin_right = 239.029
 margin_bottom = -8.72839
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Cooking Daddy"
 __meta__ = {
 "_edit_use_anchors_": false
