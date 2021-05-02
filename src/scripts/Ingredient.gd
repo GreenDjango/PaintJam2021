@@ -2,6 +2,8 @@ extends Node2D
 
 onready var sprite: Sprite = $Sprite
 
+var speed = 3
+
 var ingredientID: int
 var selected = false
 var isMoving = true
@@ -18,7 +20,7 @@ func _physics_process(delta):
 	if selected:
 		global_position = lerp(global_position, get_global_mouse_position(),25 * delta)
 	if isMoving:
-		translate(Vector2(3,0))
+		translate(Vector2(Globals.ingredientSpeed,0))
 
 func _input(event):
 	if event is InputEventMouseButton:
