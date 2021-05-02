@@ -15,7 +15,7 @@ func _ready():
 	initLives()
 	
 	timer.connect("timeout",self,"_on_timer_timeout")
-	timer.wait_time = 10
+	timer.wait_time = 30
 	timer.start()
 
 func _process(delta):
@@ -72,7 +72,7 @@ func addLives():
 	liveIndicator.expand = true
 	liveIndicator.rect_min_size = Vector2(50,50)
 	liveIndicator.rect_size = Vector2(50,50)
-	liveIndicator.texture = load("res://assets/sprites/soup.png")
+	liveIndicator.texture = load("res://assets/sprites/campbells.png")
 	
 	liveCross.expand = true
 	liveCross.rect_min_size = Vector2(50,50)

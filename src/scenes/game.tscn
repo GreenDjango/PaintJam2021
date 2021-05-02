@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/scenes/level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/shaders/wobbly_effect.shader" type="Shader" id=3]
@@ -7,9 +7,42 @@
 [ext_resource path="res://assets/font/Louisfont-Regular.otf" type="DynamicFontData" id=6]
 [ext_resource path="res://src/scripts/CanvasLayer.gd" type="Script" id=7]
 
+[sub_resource type="Shader" id=11]
+code = "shader_type canvas_item;
+
+// https://godotshaders.com/shader/wobbly-effect-hand-painted-animation
+// The shader code and all code snippets in this post are under CC0 license
+
+uniform sampler2D flowMap; //Displacement map
+uniform float strength;    //Force of the effect
+uniform float speed;       //Speed of the effect
+uniform int frames : hint_range(1, 10); //Frames of the effect
+
+//Returns a value between 0 and 1 depending of the frames -> exemple: frames = 4, frame 1 = 0.25
+float clock(float time){
+	float fframes = float(frames);
+	return floor(mod(time * speed, fframes)) / fframes;
+}
+
+void fragment(){
+	float c = clock(TIME); //Get clock frame
+	vec4 offset = texture(flowMap, vec2(UV.x + c, UV.y + c)) * strength; //Get offset 
+	//COLOR = texture(TEXTURE, vec2(UV.x,UV.y) + normal.xy); //Apply offset
+	COLOR = texture(TEXTURE, vec2(UV.x,UV.y) + offset.xy - vec2(0.5,0.5)*strength); //We need to remove the displacement 
+}
+
+
+// TEST CLOCK
+/*
+void fragment(){
+	float c = clock(TIME);
+	COLOR = vec4( c, c, c, 1);
+}
+*/"
+
 [sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 3 )
-shader_param/strength = 0.005
+shader = SubResource( 11 )
+shader_param/strength = 0.003
 shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 4 )
@@ -96,7 +129,7 @@ font_data = ExtResource( 6 )
 [node name="Game" type="Node2D"]
 
 [node name="Level" parent="." instance=ExtResource( 1 )]
-position = Vector2( -2.16748, -1.05121 )
+position = Vector2( -3.03711, -0.616396 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=[
 "UI",
@@ -105,10 +138,10 @@ script = ExtResource( 7 )
 
 [node name="DebugLabel" type="Label" parent="CanvasLayer"]
 material = SubResource( 1 )
-anchor_left = -0.000679874
-anchor_top = 0.998791
-anchor_right = -0.000679874
-anchor_bottom = 0.998791
+anchor_left = -4.52995e-07
+anchor_top = 0.999395
+anchor_right = -4.52995e-07
+anchor_bottom = 0.999395
 margin_left = 48.26
 margin_top = -320.0
 margin_right = 212.26
@@ -166,22 +199,22 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="CanvasLayer/Timer"]
 
-[node name="SpeedNormal" type="TextureButton" parent="CanvasLayer"]
+[node name="SpeedDown" type="TextureButton" parent="CanvasLayer"]
 material = SubResource( 1 )
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -293.97
-margin_top = -220.779
-margin_right = -53.9697
-margin_bottom = -135.779
+margin_left = -295.274
+margin_top = -221.214
+margin_right = -55.2742
+margin_bottom = -136.214
 texture_normal = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/SpeedNormal"]
+[node name="Label" type="Label" parent="CanvasLayer/SpeedDown"]
 material = SubResource( 6 )
 anchor_left = 0.5
 anchor_top = 0.511913
@@ -205,9 +238,9 @@ anchor_top = 1.0
 anchor_right = 0.999394
 anchor_bottom = 1.0
 margin_left = -293.837
-margin_top = -320.122
+margin_top = -319.687
 margin_right = -53.8367
-margin_bottom = -235.122
+margin_bottom = -234.687
 texture_normal = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -230,5 +263,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="CanvasLayer/SpeedNormal" to="Level" method="_on_SpeedNormal_pressed"]
+[connection signal="pressed" from="CanvasLayer/SpeedDown" to="Level" method="_on_SpeedDown_pressed"]
 [connection signal="pressed" from="CanvasLayer/SpeedUp" to="Level" method="_on_SpeedUp_pressed"]
