@@ -46,6 +46,7 @@ func _physics_process(delta):
 			print("deposit")
 			if Globals.currentRecipe.has(Globals.ingredientDragged.ingredientID):
 				get_tree().get_nodes_in_group("UI")[0].toggleCheck(Globals.ingredientDragged.ingredientID)
+				get_tree().get_nodes_in_group("UI")[0].ingredientsRemaining -= 1
 			Globals.ingredientDragged.queue_free()
 			Globals.ingredientDragged = null
 		else:

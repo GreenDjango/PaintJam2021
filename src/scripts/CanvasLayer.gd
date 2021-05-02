@@ -7,6 +7,8 @@ onready var timerLabel = $Timer
 onready var timer = $Timer/Timer
 
 var nbIngredients = 3
+var ingredientsRemaining = nbIngredients
+
 var checks = []
 var crosses = []
 
@@ -15,21 +17,38 @@ func _ready():
 	initLives()
 	
 	timer.connect("timeout",self,"_on_timer_timeout")
-	timer.wait_time = 30
+	timer.wait_time = 5
 	timer.start()
 
 func _process(delta):
+	if ingredientsRemaining == 0:
+		Globals.recipeDone = true
+		if Globals.recipeDone:
+			changeRecipe()
 	timerLabel.text = String(int(timer.time_left))
 
 func _on_timer_timeout():
 	if not Globals.recipeDone:
-		print("lose")
-	else:
-		print("win")
+		crosses[Globals.life-1].visible = true
+		Globals.life -= 1
+		if Globals.life ==  0:
+			print("Game Over")
+
+func changeRecipe():
+	timer.start()
+	checks = []
+	ingredientsRemaining = nbIngredients
+	for child in recipeContainer.get_children():
+		child.queue_free()
+	createRecipe()
+	recipeContainer
 
 func createRecipe():
 	for i in nbIngredients:
 		var random: int = randi() % Globals.ingredientSprites.size()
+		if Globals.currentRecipe.has(random):
+			while Globals.currentRecipe.has(random):
+				random = randi() % Globals.ingredientSprites.size()
 		Globals.currentRecipe.append(random)
 		addIngredientIndicator(random)
 
@@ -79,7 +98,7 @@ func addLives():
 	liveCross.rect_size = Vector2(50,50)
 	liveCross.texture = load("res://assets/sprites/check.png")
 	liveCross.visible = false
-	crosses.append(liveCross)
 	
+	crosses.append(liveCross)
 	liveIndicator.add_child(liveCross)
 	livesContainer.add_child(liveIndicator)
