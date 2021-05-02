@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/scripts/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/font/Louisfont-Regular.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://src/shaders/wobbly_effect.shader" type="Shader" id=3]
 [ext_resource path="res://assets/textures/normals/organic-normal.jpg" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/tomato.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/boutton.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 800, 500 )
@@ -14,7 +15,7 @@ bounce = 0.6
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 3 )
-shader_param/strength = 0.03
+shader_param/strength = 0.04
 shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 4 )
@@ -42,6 +43,71 @@ size = 100
 outline_size = 2
 use_mipmaps = true
 font_data = ExtResource( 2 )
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = ExtResource( 3 )
+shader_param/strength = 0.04
+shader_param/speed = 3.0
+shader_param/frames = 2
+shader_param/flowMap = ExtResource( 4 )
+
+[sub_resource type="ShaderMaterial" id=11]
+shader = ExtResource( 3 )
+shader_param/strength = 0.015
+shader_param/speed = 3.0
+shader_param/frames = 2
+shader_param/flowMap = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 45
+outline_size = 1
+use_mipmaps = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=12]
+resource_name = "Start"
+length = 0.2
+step = 0.01
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Start:rect_size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 240, -0.25, 0, 0.198586, 79.1404, 267, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Start:rect_size:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 85, -0.25, 0, 0.182485, -28.9439, 70, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Start:rect_position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 520, -0.25, 0, 0.186063, -42.5706, 507, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Start:rect_position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 436.5, -0.25, 0, 0.127024, 11.9056, 443, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2 )
+}
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -128,3 +194,48 @@ text = "Cooking Daddy"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Start" type="TextureButton" parent="."]
+material = SubResource( 10 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = 76.5
+margin_right = 120.0
+margin_bottom = 161.5
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Start"]
+material = SubResource( 11 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 9 )
+text = "START"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Start = SubResource( 12 )
+
+[connection signal="button_down" from="Start" to="." method="_on_Start_button_down"]
+[connection signal="button_up" from="Start" to="." method="_on_Start_button_up"]
+[connection signal="mouse_entered" from="Start" to="." method="_on_Start_mouse_entered"]
+[connection signal="mouse_exited" from="Start" to="." method="_on_Start_mouse_exited"]
