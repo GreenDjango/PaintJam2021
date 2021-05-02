@@ -47,7 +47,7 @@ height = 64.2
 radius = 49.9009
 height = 64.2399
 
-[sub_resource type="ShaderMaterial" id=18]
+[sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 3 )
 shader_param/strength = 0.005
 shader_param/speed = 3.0
@@ -269,7 +269,7 @@ rotation = 1.5708
 shape = SubResource( 8 )
 
 [node name="plain" type="Sprite" parent="Node2D"]
-material = SubResource( 18 )
+material = SubResource( 9 )
 position = Vector2( 0, 607 )
 texture = ExtResource( 8 )
 centered = false
