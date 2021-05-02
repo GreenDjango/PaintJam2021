@@ -6,38 +6,38 @@
 [ext_resource path="res://assets/textures/normals/organic-normal.jpg" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/tomato.png" type="Texture" id=5]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 800, 500 )
 
-[sub_resource type="PhysicsMaterial" id=7]
+[sub_resource type="PhysicsMaterial" id=2]
 bounce = 0.6
 
-[sub_resource type="ShaderMaterial" id=6]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 3 )
 shader_param/strength = 0.03
 shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 4 )
 
-[sub_resource type="CapsuleShape2D" id=9]
-radius = 51.9091
-height = 34.2469
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 47.8531
+height = 64.2
 
-[sub_resource type="CapsuleShape2D" id=8]
-radius = 55.1414
-height = 24.8072
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 49.9009
+height = 64.2399
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 700, 10 )
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="ShaderMaterial" id=7]
 shader = ExtResource( 3 )
 shader_param/strength = 0.01
 shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=8]
 size = 100
 outline_size = 2
 use_mipmaps = true
@@ -64,12 +64,12 @@ space_override = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
 visible = false
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="Node2D"]
 position = Vector2( 438.322, 124.726 )
 mass = 2.0
-physics_material_override = SubResource( 7 )
+physics_material_override = SubResource( 2 )
 gravity_scale = 7.0
 angular_velocity = -5.0
 __meta__ = {
@@ -77,18 +77,18 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Node2D/RigidBody2D2"]
-material = SubResource( 6 )
+material = SubResource( 3 )
 texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/RigidBody2D2"]
-position = Vector2( 7.49154, 17.6051 )
+position = Vector2( -2.635, 13.724 )
 rotation = 1.5708
-shape = SubResource( 9 )
+shape = SubResource( 4 )
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Node2D"]
 position = Vector2( 219.161, 62.3629 )
 mass = 2.0
-physics_material_override = SubResource( 7 )
+physics_material_override = SubResource( 2 )
 gravity_scale = 7.0
 angular_velocity = 10.0
 __meta__ = {
@@ -96,13 +96,13 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Node2D/RigidBody2D"]
-material = SubResource( 6 )
+material = SubResource( 3 )
 texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/RigidBody2D"]
-position = Vector2( 7.49154, 17.6051 )
+position = Vector2( -2.619, 11.661 )
 rotation = 1.5708
-shape = SubResource( 8 )
+shape = SubResource( 5 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
 position = Vector2( 640, 730 )
@@ -111,10 +111,10 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="Title" type="Label" parent="."]
-material = SubResource( 1 )
+material = SubResource( 7 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -123,7 +123,7 @@ margin_left = -237.971
 margin_top = -100.728
 margin_right = 239.029
 margin_bottom = -8.72839
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 8 )
 text = "Cooking Daddy"
 __meta__ = {
 "_edit_use_anchors_": false
