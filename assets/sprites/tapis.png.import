@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tapis.png-384c0c54580766c2d0ee27e6c37079ff.stex"
+path="res://.import/tapis.png-483ec4520c45a3942b1a712e88d1a203.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tapis.png"
-dest_files=[ "res://.import/tapis.png-384c0c54580766c2d0ee27e6c37079ff.stex" ]
+source_file="res://assets/sprites/tapis.png"
+dest_files=[ "res://.import/tapis.png-483ec4520c45a3942b1a712e88d1a203.stex" ]
 
 [params]
 
