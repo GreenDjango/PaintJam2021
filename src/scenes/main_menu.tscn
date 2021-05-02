@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/scripts/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/font/Louisfont-Regular.otf" type="DynamicFontData" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/sprites/tomato.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/boutton.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/clouds.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/plain.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 800, 500 )
@@ -46,8 +47,12 @@ height = 64.2
 radius = 49.9009
 height = 64.2399
 
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 700, 10 )
+[sub_resource type="ShaderMaterial" id=9]
+shader = ExtResource( 3 )
+shader_param/strength = 0.005
+shader_param/speed = 3.0
+shader_param/frames = 2
+shader_param/flowMap = ExtResource( 4 )
 
 [sub_resource type="ShaderMaterial" id=10]
 shader = ExtResource( 3 )
@@ -179,18 +184,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0.635294, 0.909804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Node2D" type="Node2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Area2D" type="Area2D" parent="Node2D"]
+visible = false
 position = Vector2( 640, 360 )
 input_pickable = false
 space_override = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
-visible = false
 shape = SubResource( 1 )
 
 [node name="clouds" type="Node2D" parent="Node2D"]
@@ -255,14 +268,21 @@ position = Vector2( -2.619, 11.661 )
 rotation = 1.5708
 shape = SubResource( 8 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
-position = Vector2( 640, 730 )
+[node name="plain" type="Sprite" parent="Node2D"]
+material = SubResource( 9 )
+position = Vector2( 0, 607 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="Ground" type="StaticBody2D" parent="Node2D"]
+visible = false
+position = Vector2( 640, 720 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
-shape = SubResource( 9 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Ground"]
+polygon = PoolVector2Array( -642.5, 9.5, -612, -19, -503.5, -63.75, -348, -97.25, -210.5, -111, 164.75, -110.75, 413, -90.5, 487.75, -69.5, 584, -23.25, 628.75, 4 )
 
 [node name="Title" type="Label" parent="."]
 material = SubResource( 10 )
@@ -271,9 +291,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -237.971
-margin_top = -100.728
+margin_top = -185.728
 margin_right = 239.029
-margin_bottom = -8.72839
+margin_bottom = -93.7284
 custom_fonts/font = SubResource( 11 )
 text = "Cooking Daddy"
 __meta__ = {
@@ -287,9 +307,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -120.0
-margin_top = 76.5
+margin_top = -2.5
 margin_right = 120.0
-margin_bottom = 161.5
+margin_bottom = 82.5
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 6 )
 expand = true
