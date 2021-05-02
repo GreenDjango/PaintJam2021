@@ -1,0 +1,82 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://src/shaders/wobbly_effect.shader" type="Shader" id=1]
+[ext_resource path="res://assets/sprites/tomato.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/normals/organic-normal.jpg" type="Texture" id=3]
+[ext_resource path="res://src/scripts/menu_ingredient.gd" type="Script" id=4]
+[ext_resource path="res://assets/sprites/salad.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/onion.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/cheese.png" type="Texture" id=7]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.6
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 49.9009
+height = 64.2399
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+shader_param/strength = 0.04
+shader_param/speed = 3.0
+shader_param/frames = 2
+shader_param/flowMap = ExtResource( 3 )
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 73.9971
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 58.3632
+height = 34.7327
+
+[node name="RigidBody2D" type="RigidBody2D"]
+mass = 2.0
+physics_material_override = SubResource( 1 )
+gravity_scale = 7.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Tomato" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -2.619, 11.661 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Tomato"]
+material = SubResource( 2 )
+position = Vector2( -11.661, -2.61896 )
+rotation = -1.5708
+texture = ExtResource( 2 )
+
+[node name="Salad" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -2.619, 11.661 )
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Salad"]
+material = SubResource( 2 )
+rotation = -1.5708
+texture = ExtResource( 5 )
+
+[node name="Onion" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -2.619, 11.661 )
+rotation = 1.5708
+shape = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Onion"]
+material = SubResource( 2 )
+position = Vector2( -2.776, 1.071 )
+rotation = -1.5708
+texture = ExtResource( 6 )
+
+[node name="Cheese" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -74.5555, 19.6162, -75.8169, 98.24, 68.3969, 53.252, 70.4991, -22.4286, 53.2607, -58.1667, 15.4204, -77.9278 )
+
+[node name="Sprite" type="Sprite" parent="Cheese"]
+material = SubResource( 2 )
+position = Vector2( -2.619, 11.661 )
+texture = ExtResource( 7 )

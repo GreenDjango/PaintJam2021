@@ -1,16 +1,15 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/scripts/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/font/Louisfont-Regular.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://src/shaders/wobbly_effect.shader" type="Shader" id=3]
 [ext_resource path="res://assets/textures/normals/organic-normal.jpg" type="Texture" id=4]
-[ext_resource path="res://assets/sprites/tomato.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/boutton.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/clouds.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/plain.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 800, 500 )
+extents = Vector2( 1352, 1308.41 )
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 3 )
@@ -29,25 +28,7 @@ flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 272, 13, 408, 201 )
 
-[sub_resource type="PhysicsMaterial" id=5]
-bounce = 0.6
-
-[sub_resource type="ShaderMaterial" id=6]
-shader = ExtResource( 3 )
-shader_param/strength = 0.04
-shader_param/speed = 3.0
-shader_param/frames = 2
-shader_param/flowMap = ExtResource( 4 )
-
-[sub_resource type="CapsuleShape2D" id=7]
-radius = 47.8531
-height = 64.2
-
-[sub_resource type="CapsuleShape2D" id=8]
-radius = 49.9009
-height = 64.2399
-
-[sub_resource type="ShaderMaterial" id=18]
+[sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 3 )
 shader_param/strength = 0.005
 shader_param/speed = 3.0
@@ -87,8 +68,13 @@ outline_size = 1
 use_mipmaps = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=15]
-resource_name = "Cloud"
+[sub_resource type="DynamicFont" id=15]
+size = 30
+outline_size = 1
+use_mipmaps = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=16]
 length = 5.0
 loop = true
 tracks/0/type = "value"
@@ -128,51 +114,57 @@ tracks/2/keys = {
 "values": [ Vector2( 0.514015, 0.514015 ), Vector2( 0.514015, 0.514015 ), Vector2( 0.55, 0.5 ), Vector2( 0.514015, 0.514015 ), Vector2( 0.514015, 0.514015 ) ]
 }
 
-[sub_resource type="Animation" id=16]
-length = 0.2
+[sub_resource type="Animation" id=19]
+resource_name = "Rain Btn"
+length = 0.1
 step = 0.01
 tracks/0/type = "bezier"
-tracks/0/path = NodePath("Start:rect_size:x")
+tracks/0/path = NodePath("Drop:rect_scale:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 240, -0.25, 0, 0.198586, 79.1404, 267, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.2 )
+"points": PoolRealArray( 1, -0.25, 0, 0.1, 0, 1.1, -0.1, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
 }
 tracks/1/type = "bezier"
-tracks/1/path = NodePath("Start:rect_size:y")
+tracks/1/path = NodePath("Drop:rect_scale:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 85, -0.25, 0, 0.182485, -28.9439, 70, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.2 )
-}
-tracks/2/type = "bezier"
-tracks/2/path = NodePath("Start:rect_position:x")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"points": PoolRealArray( 520, -0.25, 0, 0.186063, -42.5706, 507, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.2 )
-}
-tracks/3/type = "bezier"
-tracks/3/path = NodePath("Start:rect_position:y")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"points": PoolRealArray( 436.5, -0.25, 0, 0.127024, 11.9056, 443, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.2 )
+"points": PoolRealArray( 1, -0.25, 0, 0.1, 0, 0.94, -0.1, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
 }
 
-[sub_resource type="AnimationNodeAnimation" id=17]
+[sub_resource type="Animation" id=17]
+resource_name = "Start Btn"
+length = 0.1
+step = 0.01
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Start:rect_scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.05, 0, 1.05, -0.05, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Start:rect_scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.05, 0, 0.95, -0.05, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+
+[sub_resource type="AnimationNodeAnimation" id=18]
 animation = "Cloud"
 
 [node name="MainMenu" type="Control"]
@@ -202,6 +194,9 @@ visible = false
 position = Vector2( 640, 360 )
 input_pickable = false
 space_override = 3
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
 shape = SubResource( 1 )
@@ -230,59 +225,42 @@ position = Vector2( 993.838, 172.185 )
 scale = Vector2( 0.514015, 0.514015 )
 texture = SubResource( 4 )
 
-[node name="RigidBody2D2" type="RigidBody2D" parent="Node2D"]
-position = Vector2( 438.322, 124.726 )
-mass = 2.0
-physics_material_override = SubResource( 5 )
-gravity_scale = 7.0
-angular_velocity = -5.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Node2D/RigidBody2D2"]
-material = SubResource( 6 )
-texture = ExtResource( 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/RigidBody2D2"]
-position = Vector2( -2.635, 13.724 )
-rotation = 1.5708
-shape = SubResource( 7 )
-
-[node name="RigidBody2D" type="RigidBody2D" parent="Node2D"]
-position = Vector2( 219.161, 62.3629 )
-mass = 2.0
-physics_material_override = SubResource( 5 )
-gravity_scale = 7.0
-angular_velocity = 10.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Node2D/RigidBody2D"]
-material = SubResource( 6 )
-texture = ExtResource( 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/RigidBody2D"]
-position = Vector2( -2.619, 11.661 )
-rotation = 1.5708
-shape = SubResource( 8 )
-
 [node name="plain" type="Sprite" parent="Node2D"]
-material = SubResource( 18 )
+material = SubResource( 9 )
 position = Vector2( 0, 607 )
 texture = ExtResource( 8 )
 centered = false
-
-[node name="Ground" type="StaticBody2D" parent="Node2D"]
-visible = false
-position = Vector2( 640, 720 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Ground"]
+[node name="Ground" type="StaticBody2D" parent="Node2D/plain"]
+visible = false
+position = Vector2( 640, 113 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/plain/Ground"]
 polygon = PoolVector2Array( -642.5, 9.5, -612, -19, -503.5, -63.75, -348, -97.25, -210.5, -111, 164.75, -110.75, 413, -90.5, 487.75, -69.5, 584, -23.25, 628.75, 4 )
+
+[node name="Dispawn" type="Area2D" parent="Node2D"]
+position = Vector2( 640, 0 )
+input_pickable = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/Dispawn"]
+polygon = PoolVector2Array( -1104, -360, -1088, 952, 1000, 936, 1000, -376, 1232, -376, 1232, 1064, -1320, 1072, -1328, -360 )
+
+[node name="Ingredients" type="Node2D" parent="Node2D"]
+
+[node name="Start" type="Position2D" parent="Node2D/Ingredients"]
+position = Vector2( 64, -64 )
+
+[node name="End" type="Position2D" parent="Node2D/Ingredients"]
+position = Vector2( 1208, -64 )
 
 [node name="Title" type="Label" parent="."]
 material = SubResource( 10 )
@@ -307,9 +285,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -120.0
-margin_top = -2.5
+margin_top = -10.5
 margin_right = 120.0
-margin_bottom = 82.5
+margin_bottom = 74.5
+grow_horizontal = 2
+grow_vertical = 2
+rect_pivot_offset = Vector2( 120, 42 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 6 )
 expand = true
@@ -337,15 +318,59 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Drop" type="TextureButton" parent="."]
+material = SubResource( 12 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -93.5
+margin_top = 109.0
+margin_right = 93.5
+margin_bottom = 175.0
+rect_pivot_offset = Vector2( 93, 33 )
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Drop"]
+material = SubResource( 13 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 15 )
+text = "RAIN"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Cloud = SubResource( 15 )
-anims/Start = SubResource( 16 )
+anims/Cloud = SubResource( 16 )
+"anims/Rain Btn" = SubResource( 19 )
+"anims/Start Btn" = SubResource( 17 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 17 )
+tree_root = SubResource( 18 )
 anim_player = NodePath("../AnimationPlayer")
 
+[connection signal="body_entered" from="Node2D/Dispawn" to="." method="_on_Dispawn_body_entered"]
 [connection signal="button_down" from="Start" to="." method="_on_Start_button_down"]
 [connection signal="button_up" from="Start" to="." method="_on_Start_button_up"]
 [connection signal="mouse_entered" from="Start" to="." method="_on_Start_mouse_entered"]
 [connection signal="mouse_exited" from="Start" to="." method="_on_Start_mouse_exited"]
+[connection signal="button_down" from="Drop" to="." method="_on_Drop_button_down"]
+[connection signal="button_up" from="Drop" to="." method="_on_Drop_button_up"]
+[connection signal="mouse_entered" from="Drop" to="." method="_on_Drop_mouse_entered"]
+[connection signal="mouse_exited" from="Drop" to="." method="_on_Drop_mouse_exited"]
