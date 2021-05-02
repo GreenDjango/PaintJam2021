@@ -22,6 +22,7 @@ var default_life := 3.0
 var life := default_life
 
 var currentRecipe: Array = []
+var recipeDone = false
 
 var lastPosition = null
 var dragging = false

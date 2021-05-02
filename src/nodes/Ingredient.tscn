@@ -1,9 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/sprites/tomato.png" type="Texture" id=1]
 [ext_resource path="res://src/scripts/Ingredient.gd" type="Script" id=2]
+[ext_resource path="res://src/shaders/wobbly_effect.shader" type="Shader" id=3]
+[ext_resource path="res://assets/textures/normals/organic-normal.jpg" type="Texture" id=4]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 3 )
+shader_param/strength = 0.04
+shader_param/speed = 3.0
+shader_param/frames = 2
+shader_param/flowMap = ExtResource( 4 )
+
+[sub_resource type="CircleShape2D" id=2]
 radius = 96.9903
 
 [node name="Ingredient" type="Node2D" groups=[
@@ -13,6 +22,7 @@ scale = Vector2( 0.740967, 0.773799 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 1 )
 scale = Vector2( 1.30178, 1.18094 )
 texture = ExtResource( 1 )
 
@@ -20,6 +30,6 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
 position = Vector2( -0.922795, -0.974044 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [connection signal="input_event" from="Sprite/Area2D" to="." method="_on_Area2D_input_event"]

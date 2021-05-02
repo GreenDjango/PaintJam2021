@@ -72,3 +72,10 @@ func instanceIngredient():
 	add_child(new_ingredient)
 	ingredientsInstancied.append(new_ingredient)
 
+
+
+func _on_SpeedNormal_pressed():
+	pass # Replace with function body.
+
+func _on_SpeedUp_pressed():
+	pass # Replace with function body.
