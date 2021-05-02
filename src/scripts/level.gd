@@ -6,6 +6,8 @@ onready var ConvoyerBelt3 := $ConvoyerBelt/ConvoyerBelt3
 onready var ConvoyerOrder := [ConvoyerBelt1, ConvoyerBelt2, ConvoyerBelt3]
 onready var ConvoyerSize : Vector2 = ConvoyerBelt1.texture.get_size()
 
+onready var music = $Music
+
 var ConvoyerSpeed = 180
 var speedLevel = 1
 
@@ -18,6 +20,7 @@ var ingredientsInstancied = []
 var isIngredientInDespositArea = false
 
 func _ready():
+	music.play()
 	instanceIngredient()
 
 func _process(delta):

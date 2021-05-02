@@ -31,7 +31,13 @@ func _process(delta):
 		if Globals.recipeDone:
 			Globals.totalScore += Globals.currentScore
 			addScoreLabel.visible = true
-			addScoreLabel.text = "+" + String(Globals.currentScore)
+			if Globals.currentScore < 0:
+				addScoreLabel.text = "" + String(Globals.currentScore)
+			else:
+				addScoreLabel.text = "+" + String(Globals.currentScore)
+			Globals.numberOfRecipes += 1
+			if Globals.numberOfRecipes == 3:
+				timer.wait_time -= 5
 			scoreTimer.wait_time = 3
 			scoreTimer.start()
 			Globals.currentScore = 30
@@ -42,9 +48,11 @@ func _on_timer_timeout():
 	if not Globals.recipeDone:
 		crosses[Globals.life-1].visible = true
 		Globals.life -= 1
+		Globals.numberOfRecipes += 1
+		if Globals.numberOfRecipes == 3:
+			timer.wait_time -= 5
 		if Globals.life ==  0:
-			print("Game Over")
-			# Implement GAME OVER
+			Globals.goto_scene("retry_menu")
 		changeRecipe()
 
 func _on_scoreTimer_timeout():

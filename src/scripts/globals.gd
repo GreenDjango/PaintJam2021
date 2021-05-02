@@ -43,3 +43,12 @@ func restart_game():
 
 func goto_scene(new_scene_name : String):
 	TransitionsAl.next_scene("res://src/scenes/" + new_scene_name + ".tscn")
+
+func resetValues():
+	numberOfRecipes = 0
+	totalScore = 0
+	currentScore = 30
+	lastPosition = null
+	dragging = false
+	ingredientDragged = null
+	life = default_life

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/scenes/level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/note.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/sprites/boutton.png" type="Texture" id=5]
 [ext_resource path="res://assets/font/Louisfont-Regular.otf" type="DynamicFontData" id=6]
 [ext_resource path="res://src/scripts/CanvasLayer.gd" type="Script" id=7]
+[ext_resource path="res://assets/sounds/cook.ogg" type="AudioStream" id=8]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -153,6 +154,10 @@ font_data = ExtResource( 6 )
 
 [node name="Level" parent="." instance=ExtResource( 1 )]
 position = Vector2( -3.03711, 0.887632 )
+
+[node name="Music" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 8 )
+volume_db = -8.619
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=[
 "UI",
