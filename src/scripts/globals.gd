@@ -7,7 +7,15 @@ var ingredientSprites := [
 	"res://assets/sprites/mushroom.png",
 	"res://assets/sprites/onion.png",
 	"res://assets/sprites/tomato.png",
-	"res://assets/sprites/water.png"
+	"res://assets/sprites/water.png",
+	"res://assets/sprites/egg.png",
+	"res://assets/sprites/meat.png",
+	"res://assets/sprites/noodles.png",
+	"res://assets/sprites/pepper.png",
+	"res://assets/sprites/salad.png",
+	"res://assets/sprites/salt.png",
+	"res://assets/sprites/spice.png",
+	"res://assets/sprites/butter.png"
 ]
 
 var default_life := 3.0
