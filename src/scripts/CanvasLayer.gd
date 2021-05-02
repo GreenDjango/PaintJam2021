@@ -22,7 +22,7 @@ func _ready():
 	
 	scoreTimer.connect("timeout",self,"_on_scoreTimer_timeout")
 	timer.connect("timeout",self,"_on_timer_timeout")
-	timer.wait_time = 30
+	timer.wait_time = 4
 	timer.start()
 
 func _process(delta):
@@ -30,6 +30,7 @@ func _process(delta):
 		Globals.recipeDone = true
 		if Globals.recipeDone:
 			Globals.totalScore += Globals.currentScore
+			print(Globals.totalScore)
 			addScoreLabel.visible = true
 			if Globals.currentScore < 0:
 				addScoreLabel.text = "" + String(Globals.currentScore)

@@ -8,41 +8,41 @@
 [ext_resource path="res://assets/sprites/clouds.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/plain.png" type="Texture" id=8]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 1352, 1308.41 )
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=13]
 shader = ExtResource( 3 )
 shader_param/strength = 0.01
 shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 4 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 2, 6, 256, 206 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 272, 13, 408, 201 )
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=16]
 shader = ExtResource( 3 )
 shader_param/strength = 0.005
 shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 4 )
 
-[sub_resource type="ShaderMaterial" id=6]
+[sub_resource type="ShaderMaterial" id=17]
 shader = ExtResource( 3 )
 shader_param/strength = 0.01
 shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=18]
 size = 100
 outline_size = 2
 use_mipmaps = true
@@ -62,7 +62,7 @@ shader_param/speed = 3.0
 shader_param/frames = 2
 shader_param/flowMap = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=19]
 size = 45
 outline_size = 1
 use_mipmaps = true
@@ -74,7 +74,7 @@ outline_size = 1
 use_mipmaps = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=20]
 length = 5.0
 loop = true
 tracks/0/type = "value"
@@ -114,8 +114,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0.514015, 0.514015 ), Vector2( 0.514015, 0.514015 ), Vector2( 0.55, 0.5 ), Vector2( 0.514015, 0.514015 ), Vector2( 0.514015, 0.514015 ) ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "Rain Btn"
+[sub_resource type="Animation" id=21]
 length = 0.1
 step = 0.01
 tracks/0/type = "bezier"
@@ -139,8 +138,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1 )
 }
 
-[sub_resource type="Animation" id=14]
-resource_name = "Start Btn"
+[sub_resource type="Animation" id=22]
 length = 0.1
 step = 0.01
 tracks/0/type = "bezier"
@@ -164,7 +162,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1 )
 }
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=23]
 animation = "Cloud"
 
 [node name="MainMenu" type="Control"]
@@ -201,7 +199,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
-shape = SubResource( 1 )
+shape = SubResource( 12 )
 
 [node name="clouds" type="Node2D" parent="Node2D"]
 position = Vector2( -79.4103, 64.4272 )
@@ -210,10 +208,10 @@ __meta__ = {
 }
 
 [node name="clouds" type="Sprite" parent="Node2D/clouds"]
-material = SubResource( 2 )
+material = SubResource( 13 )
 position = Vector2( 218.296, 278.972 )
 scale = Vector2( 0.514015, 0.514015 )
-texture = SubResource( 3 )
+texture = SubResource( 14 )
 
 [node name="clouds2" type="Node2D" parent="Node2D"]
 position = Vector2( 94.3935, 38.956 )
@@ -222,13 +220,13 @@ __meta__ = {
 }
 
 [node name="clouds3" type="Sprite" parent="Node2D/clouds2"]
-material = SubResource( 2 )
+material = SubResource( 13 )
 position = Vector2( 993.838, 172.185 )
 scale = Vector2( 0.514015, 0.514015 )
-texture = SubResource( 4 )
+texture = SubResource( 15 )
 
 [node name="plain" type="Sprite" parent="Node2D"]
-material = SubResource( 5 )
+material = SubResource( 16 )
 position = Vector2( 0, 607 )
 texture = ExtResource( 8 )
 centered = false
@@ -265,7 +263,7 @@ position = Vector2( 64, -64 )
 position = Vector2( 1208, -64 )
 
 [node name="Title" type="Label" parent="."]
-material = SubResource( 6 )
+material = SubResource( 17 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -274,7 +272,7 @@ margin_left = -237.971
 margin_top = -185.728
 margin_right = 239.029
 margin_bottom = -93.7284
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 18 )
 text = "Cooking Daddy"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -313,7 +311,7 @@ margin_right = 20.0
 margin_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 19 )
 text = "START"
 align = 1
 __meta__ = {
@@ -359,12 +357,12 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Cloud = SubResource( 12 )
-"anims/Rain Btn" = SubResource( 13 )
-"anims/Start Btn" = SubResource( 14 )
+anims/Cloud = SubResource( 20 )
+"anims/Rain Btn" = SubResource( 21 )
+"anims/Start Btn" = SubResource( 22 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 15 )
+tree_root = SubResource( 23 )
 anim_player = NodePath("../AnimationPlayer")
 
 [connection signal="body_entered" from="Node2D/Dispawn" to="." method="_on_Dispawn_body_entered"]

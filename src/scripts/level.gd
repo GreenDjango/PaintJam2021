@@ -21,6 +21,7 @@ var isIngredientInDespositArea = false
 
 func _ready():
 	music.play()
+	_process(0)
 	instanceIngredient()
 
 func _process(delta):
@@ -88,7 +89,7 @@ func _on_SpeedDown_pressed():
 	updateSpeed()
 
 func _on_SpeedUp_pressed():
-	if speedLevel == 3:
+	if speedLevel == 4:
 		return
 	speedLevel += 1
 	updateSpeed()
@@ -107,3 +108,7 @@ func updateSpeed():
 			ConvoyerSpeed = 720
 			Globals.ingredientSpeed =  12
 			spawnSpeed = 0.5
+		4:
+			ConvoyerSpeed = 1440
+			Globals.ingredientSpeed =  24
+			spawnSpeed = 0.25
