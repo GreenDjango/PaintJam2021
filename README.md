@@ -1,23 +1,23 @@
-# <img src="assets/icon.png" alt="GGJ icon" width="64" style="margin-bottom: -3px;"/> NAME
+# <img src="screenshots/main.png" alt="GGJ icon" width="200" style="margin-bottom: -3px;"/> Cooking Daddy
 
 [![release][1]][2] [![license][7]][8]
 
-Paint Jam 2021 is a **JAM game** for 💻**PC** / 🌐**Web**.
+Cooking Daddy is a **JAM game** for 💻**PC** / 🌐**Web**.
 
-[Game jam 2021](https://globalgamejam.org/2021/games/poungi-6) theme is `Lost & Found`.
+[Paint jam 2021](https://itch.io/jam/paint-jam-2021) theme is `only MS Paint` and `Campbell's Soup`.
 
-<!--- ![alt text](demo.gif 'Demo bonus') --->
+[![Cooking Daddy](screenshots/screen1.png)](https://greendjango.itch.io/cooking-daddy "Click to Play!")
 
 ## <img src="https://static.itch.io/favicon.ico"> Play on itch.io
 
-Play at **[kiiks.itch.io](https://kiiks.itch.io/poungi)**
+Play at **[greendjango.itch.io](https://greendjango.itch.io/cooking-daddy)**
 
 
 ## Install & Setup
 
-1. Download the 💻*binary* from **[releases](https://github.com/GreenDjango/NAME/releases)**
+1. Download the 💻*binary* from **[releases](https://github.com/GreenDjango/PaintJam2021/releases)**
 2. Run the app
-3. Enjoy with `NAME` !
+3. Enjoy with `Cooking Daddy` !
 4. Optional: `rm -rf *` for delete all your pc
 
 ---
@@ -27,9 +27,9 @@ Play at **[kiiks.itch.io](https://kiiks.itch.io/poungi)**
 - **[@Louis C.](https://github.com/Kdaudau)** 🦦
 - **[@Théo C.](https://github.com/GreenDjango)** 🐙
 
-<img src="assets/splashscreen.png" alt="GGJ icon" width="200" align="center"/>
+<img src="screenshots/screen2.gif" alt="Cooking Daddy icon" align="center"/>
 
 [1]: https://img.shields.io/badge/release-v0.1.0-blue
-[2]: https://github.com/GreenDjango/NAME/releases 'GitHub release (latest by date)'
+[2]: https://github.com/GreenDjango/PaintJam2021/releases 'GitHub release (latest by date)'
 [7]: https://img.shields.io/badge/license-MIT-green
-[8]: https://github.com/GreenDjango/NAME/blob/master/LICENSE 'GitHub license'
+[8]: https://github.com/GreenDjango/PaintJam2021/blob/master/LICENSE 'GitHub license'
